@@ -1,0 +1,24 @@
+stages:
+  - testing
+  - build
+
+test:
+  stage: testing
+  image: node:10-alpine
+  script:
+    - npm install
+    - npm run test
+
+build_image:
+  stage: build
+  only: [master]
+  image: docker:git
+  variables:
+    CONTAINER_IMAGE: docker.io/raniket/test-app
+  services:
+    - docker:dind
+  script:
+    - docker login -u raniket -p $DOCKERHUB_PASSWORD
+    - docker build -t raniket/test-app .
+    - docker tag raniket/test-app raniket/test-app:$CI_COMMIT_SHA
+    - docker push raniket/test-app:$CI_COMMIT_SHA
