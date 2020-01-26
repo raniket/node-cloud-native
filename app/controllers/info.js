@@ -1,5 +1,5 @@
-const { APP  } = require("../../settings/custom");
-const { version } = require("../../package.json");
+const { APP } = require('../../settings/custom');
+const { version } = require('../../package.json');
 /**
  * App information
  *
