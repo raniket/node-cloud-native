@@ -1,11 +1,3 @@
-// {
-//   "extends": ["airbnb-base"],
-//   "plugins": ["prettier"],
-//   "rules": {
-//     "prettier/prettier": ["error"]
-//   },
-// }
-
 module.exports = {
   extends: ['airbnb-base', 'prettier'],
   globals: {
@@ -16,7 +8,7 @@ module.exports = {
     knex: true
   },
 
-  plugins: ['prettier'],
+  plugins: ['prettier', 'jest'],
   rules: {
     'prettier/prettier': ['error'],
     'no-console': 'off'
